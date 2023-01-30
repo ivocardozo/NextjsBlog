@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+
+import Hero from '../components/home-page/hero'
 
 const HomePage = () => {
   return (
-    <div>
-      
-    </div>
+    <Fragment>
+        <Hero />
+        {/* // <FeaturedPosts /> */}
+    </Fragment>
   )
 }
 
