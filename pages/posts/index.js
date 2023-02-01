@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Head from 'next/head'
 
 import AllPosts from '@/components/posts/all-posts'
 import { getAllPosts } from '@/lib/posts-util'
 
 const AllPostsPage = (props) => {
   return (
-    <AllPosts posts={props.posts}/>
+    <Fragment>
+        <Head>
+            <title>All posts</title>
+            <meta 
+                name='description'
+                content='A list of all programming-related tutorial and posts'
+            />
+        </Head>
+        <AllPosts posts={props.posts}/>
+    </Fragment>
   )
 }
 
