@@ -54,7 +54,7 @@ const ContactForm = () => {
                 rows='5'
                 required
                 value={enteredMessage}
-                onChange={event => enteredMessage(event.target.value)}
+                onChange={event => setEnteredMessage(event.target.value)}
                 />
         </div>
         <div className={classes.actions}>
