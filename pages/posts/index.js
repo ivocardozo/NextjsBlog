@@ -2,42 +2,9 @@ import React, { Fragment } from 'react'
 import Head from 'next/head'
 
 import AllPosts from '@/components/posts/all-posts'
+import { getAllPosts } from '@/lib/posts-util'
 
-const DUMMY_POSTS = [
-    {
-        slug: 'getting-started-with-nextjs',
-        title: 'getting started with nextJs',
-        image: 'getting-started-nextjs.png',
-        excerpt:
-            'NextJs is a the React framwork for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR',
-        date: '2022-02-10'
-    },
-    {
-        slug: 'getting-started-with-nextjs2',
-        title: 'getting started with nextJs',
-        image: 'getting-started-nextjs.png',
-        excerpt:
-            'NextJs is a the React framwork for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR',
-        date: '2022-02-10'
-    },{
-        slug: 'getting-started-with-nextjs3',
-        title: 'getting started with nextJs',
-        image: 'getting-started-nextjs.png',
-        excerpt:
-            'NextJs is a the React framwork for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR',
-        date: '2022-02-10'
-    },
-    {
-        slug: 'getting-started-with-nextjs4',
-        title: 'getting started with nextJs',
-        image: 'getting-started-nextjs.png',
-        excerpt:
-            'NextJs is a the React framwork for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR',
-        date: '2022-02-10'
-    }
-  ]
-  
-const AllPostsPage = () => {
+const AllPostsPage = (props) => {
   return (
     <Fragment>
         <Head>
@@ -47,9 +14,18 @@ const AllPostsPage = () => {
                 content='A list of all programming-related tutorial and posts'
             />
         </Head>
-        <AllPosts posts={DUMMY_POSTS}/>
+        <AllPosts posts={props.posts}/>
     </Fragment>
   )
+}
+
+export async function getStaticProps() {
+    const allPosts = getAllPosts()
+    return {
+        props: {
+            posts: allPosts
+        }
+    }
 }
 
 export default AllPostsPage
