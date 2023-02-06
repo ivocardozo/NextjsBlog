@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Head from 'next/head'
 
 import AllPosts from '@/components/posts/all-posts'
 
@@ -38,7 +39,16 @@ const DUMMY_POSTS = [
   
 const AllPostsPage = () => {
   return (
-    <AllPosts posts={DUMMY_POSTS}/>
+    <Fragment>
+        <Head>
+            <title>All Posts</title>
+            <meta 
+                name='description'
+                content='A list of all programming-related tutorial and posts'
+            />
+        </Head>
+        <AllPosts posts={DUMMY_POSTS}/>
+    </Fragment>
   )
 }
 
