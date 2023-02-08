@@ -6,7 +6,7 @@ import classes from './post-header'
 const PostHeader = (props) => {
     const { title, image } = props
   return (
-    <header>
+    <header className={classes .header}>
       <h1>{title}</h1>
       <Image 
         src={image}
