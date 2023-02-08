@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Head from 'next/head'
 
 import { getPostsFiles, getPostData } from '@/lib/posts-util'
 
@@ -6,7 +7,16 @@ import PostContent from '@/components/posts/post-detail/post-content'
 
 const PostDetailPage = (props) => {
   return (
-    <PostContent posts={props.post}/>
+    <Fragment>
+      <PostContent posts={props.post}/>
+      <Head>
+        <title>{props.post.title}</title>
+        <meta 
+          name='description'
+          content={props.post.excerpt}
+        />
+      </Head>
+    </Fragment>
   )
 }
 
